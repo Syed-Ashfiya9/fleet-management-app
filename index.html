@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8/">
+        <meta name="viewreport"
+        content="width=device-width,initial-scale=1"/>
+        <title>Fleet App-Admin</title>
+        <link rel="stylesheet"href="style.css"/> 
+    </head>
+    <body>
+        <main class="centered-container">
+            <div class="card login-card">
+                <h1>Admin Login</h1>
+                <form id="loginForm"autocomplete="off">
+                    <label>
+                        Email
+                        <input type="email"id="email"
+                        placeholder="admin1234"required/>
+                    </label>
+                    <label>
+                        Password
+                        <input type="password"id="password"
+                        placeholder="admin1234"required/>
+                    </label>
+                    <button type="submit"class="btn primary">Login</button>
+                </form>
+                <p class="hint"><strong>Valid credentials:</strong>admin@gmail.com/admin1234</p>
+            </div>
+        </main>
+        <script>
+            //simple logiin client side
+            const VALID_EMAIL = 'admin@gmail.com';
+            const VALID_PWD = 'admin1234';
+            document.getElementById('loginForm').addEventListener('submit',function(e){
+                e.preventDefault();
+                const email = document.getElementById('email').value.trim();
+                const pwd = document.getElementById('password').value;
+                if(email===VALID_EMAIL&&pwd===VALID_PWD){
+                    alert('Login success');
+                    sessionStorage.setltem('fleetAppLoggedIn','true');
+                    window.location.href='admin.html';
+                }else{
+                    alert('Wrong email  or password');
+                }
+            });
+            if(sessionStorage.getItem('fleetAppLoggedIn')==='true'){
+                window.location.href='admin.html'
+            }
+        </script>
+    </body>
+</html>

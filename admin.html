@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewreport"
+        content="width=device-width,initial-scale=1"/>
+        <title>FleetApp-Admin</title>
+        <link rel="stylesheet"href="style.css"/>
+    </head>
+    <body>
+        <header class="navbar">
+            <div class="brand">Fleet Manager</div>
+            <div class="filters">
+                <label>
+                    Category:
+                    <select id="filterCategory">
+                        <option value="All">All</option>
+                        <option value="Auto">Auto</option>
+                        <option value="Car">Car</option>
+                        <option value="Truck">Truck</option>
+                        <option value="Bus">Bus</option>
+
+                    </select>
+                </label>
+                <label>
+                    Availability:
+                    <select id="filterAvailability">
+                        <option value="All">All</option>
+                        <option value="Available">Available</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                </label>
+                <button id="clearFilters"class="btn">ClearFilter</button>
+            </div>
+        </header>
+        <div class="layout">
+            <aside class="sidebar">
+                <h2>AddFleet</h2>
+                <form id="fleetForm"autocomplete="off">
+                    <label>
+                        Category*
+                    <select id="category"required>
+                        <option value="">Select...</option>
+                        <option valur="Auto">Auto</option>
+                        <option valur="Car">Car</option>
+                        <option valur="Truck">Truck</option>
+                        <option valur="Bus">Bus</option>
+                    </select>
+                    </label>
+                    <label>
+                        Driver Name*
+                    <input type="text"id="driverName"Placeholder="Driver Name"required/>
+                    </label>
+                    <label class="inline">
+                        <input type="checkbox"id="isAvailable"/>Available
+                    </label>
+                    <button id="addFleetBtn"class="btn primary"type="submit">AddFleet</button>
+                </form>
+            </aside>
+            <main class="main-content">
+                <h2>Fleet</h2>
+                <div id="cardsContainer"
+                class="cards-grid"></div>
+            </main>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
